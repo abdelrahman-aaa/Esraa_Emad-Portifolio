@@ -1,0 +1,349 @@
+/* ============================================================
+   SOCIAL MEDIA SECTION — STYLES
+   ============================================================ */
+
+/* ── Section dividers (before & after) ── */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: transparent;
+  position: relative;
+}
+
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: var(--section-pad-x);
+  right: var(--section-pad-x);
+  max-width: calc(var(--container-max) - var(--section-pad-x) * 2);
+  margin: 0 auto;
+  height: 1px;
+  background: var(--border);
+  /* Center within the page */
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - var(--section-pad-x) * 2);
+}
+
+/* ── Section wrapper ── */
+.sm-section {
+  padding: 64px 0 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* ════════════════════════════════════════
+   HEADING — ★ Social Media ★
+════════════════════════════════════════ */
+.sm-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 0 48px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.sm-heading-text {
+  font-size: clamp(44px, 6vw, 72px);
+  color: var(--navy);
+  line-height: 1;
+}
+
+.sm-heading-star {
+  color: var(--gold);
+  font-size: 18px;
+  line-height: 1;
+  position: relative;
+  top: 2px;
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════
+   GALLERY CONTAINER
+════════════════════════════════════════ */
+.sm-gallery-wrap {
+  /* full-bleed padding handled by .container */
+}
+
+.sm-gallery {
+  background: #f0eff8;
+  border: 1px solid #e2e0ee;
+  border-radius: 24px;
+  padding: 48px 40px 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  /* Allow hovered cards to overflow above container edges */
+  overflow: visible;
+}
+
+/* ════════════════════════════════════════
+   COLLAGE ROWS
+════════════════════════════════════════ */
+
+/* Both rows use flex with controlled negative margins for overlap */
+.sm-row {
+  display: flex;
+  align-items: flex-start;
+  /* overflow visible so rotated/hovered cards aren't clipped */
+  overflow: visible;
+}
+
+/* ── Row 1: 6 cards → 3 groups of 2, with a gap between groups ── */
+.sm-row-1 {
+  gap: 0;
+  justify-content: center;
+}
+
+/* ── Row 2: 5 cards → 2 groups of 2 + 1 solo ── */
+.sm-row-2 {
+  gap: 0;
+  justify-content: center;
+}
+
+/* ════════════════════════════════════════
+   IMAGE CARD
+════════════════════════════════════════ */
+.sm-card {
+  /* CSS custom props set per-card via inline style */
+  --card-rotate: 0deg;
+  --card-ty: 0px;
+
+  flex-shrink: 0;
+  width: 148px;
+  height: 178px;
+  border-radius: 14px;
+  background: #dddaf0;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 4px 16px rgba(80, 70, 160, 0.12),
+    0 1px 4px rgba(80, 70, 160, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(var(--card-rotate)) translateY(var(--card-ty));
+  transform-origin: center center;
+  position: relative;
+  /* Overlap: each card pulls left by ~36px */
+  margin-left: -28px;
+  cursor: pointer;
+  z-index: 1;
+
+  /* Smooth all transitions */
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease,
+    z-index 0s;
+
+  /* Group spacing: every 2nd card gets extra right margin to create pair gap */
+}
+
+/* First card in each row — no negative left margin */
+.sm-row .sm-card:first-child {
+  margin-left: 0;
+}
+
+/* ── Group gaps: push every 3rd card (pair separators) ── */
+/* Row 1: cards at index 2 and 4 (0-indexed) start new pairs */
+.sm-row-1 .sm-card:nth-child(3),
+.sm-row-1 .sm-card:nth-child(5) {
+  margin-left: 20px;
+}
+
+/* Row 2: card at index 3 starts new pair */
+.sm-row-2 .sm-card:nth-child(3) {
+  margin-left: 20px;
+}
+
+/* ── Hover interaction ── */
+.sm-card:hover {
+  transform: rotate(0deg) translateY(calc(var(--card-ty) - 10px)) scale(1.07);
+  box-shadow:
+    0 16px 40px rgba(80, 70, 160, 0.22),
+    0 4px 12px rgba(80, 70, 160, 0.14);
+  z-index: 20;
+}
+
+/* ── Card image (when actual image provided) ── */
+.sm-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* ── Placeholder icon ── */
+.sm-placeholder-icon {
+  width: 28px;
+  height: 28px;
+  opacity: 0.65;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════
+   FOOTER ROW
+════════════════════════════════════════ */
+.sm-footer {
+  margin-top: 48px;
+  padding-bottom: 0;
+}
+
+.sm-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.sm-footer-left,
+.sm-footer-right {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+.sm-footer-monogram {
+  font-size: 34px;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.sm-footer-divider {
+  height: 1px;
+  background: var(--border);
+  width: 100%;
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — TABLET (≤1024px)
+════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .sm-gallery {
+    padding: 36px 28px 40px;
+    gap: 28px;
+  }
+
+  .sm-card {
+    width: 120px;
+    height: 146px;
+    border-radius: 12px;
+    margin-left: -22px;
+  }
+
+  .sm-row-1 .sm-card:nth-child(3),
+  .sm-row-1 .sm-card:nth-child(5) {
+    margin-left: 14px;
+  }
+
+  .sm-row-2 .sm-card:nth-child(3) {
+    margin-left: 14px;
+  }
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤768px)
+════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .sm-section {
+    padding: 48px 0 0;
+  }
+
+  .sm-heading {
+    margin-bottom: 36px;
+    gap: 12px;
+  }
+
+  .sm-heading-text {
+    font-size: clamp(38px, 8vw, 56px);
+  }
+
+  .sm-gallery {
+    padding: 28px 16px 32px;
+    gap: 24px;
+    border-radius: 18px;
+  }
+
+  /* On mobile: wrap cleanly by pairs */
+  .sm-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px 16px;
+  }
+
+  .sm-card {
+    width: 104px;
+    height: 128px;
+    border-radius: 10px;
+    margin-left: -20px;
+  }
+
+  /* First card in each row or pair resets margin */
+  .sm-row .sm-card:first-child,
+  .sm-row-1 .sm-card:nth-child(3),
+  .sm-row-1 .sm-card:nth-child(5),
+  .sm-row-2 .sm-card:nth-child(3) {
+    margin-left: 0;
+  }
+
+  .sm-placeholder-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Footer */
+  .sm-footer {
+    margin-top: 32px;
+  }
+
+  .sm-footer-monogram {
+    font-size: 26px;
+  }
+
+  /* Touch devices: disable hover animation (accessibility) */
+  @media (hover: none) {
+    .sm-card:hover {
+      transform: rotate(var(--card-rotate)) translateY(var(--card-ty)) scale(1);
+      box-shadow:
+        0 4px 16px rgba(80, 70, 160, 0.12),
+        0 1px 4px rgba(80, 70, 160, 0.08);
+      z-index: 1;
+    }
+  }
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — SMALL MOBILE (≤400px)
+════════════════════════════════════════ */
+@media (max-width: 400px) {
+  .sm-gallery {
+    padding: 20px 10px 24px;
+    gap: 18px;
+  }
+
+  .sm-card {
+    width: 90px;
+    height: 112px;
+    margin-left: -18px;
+  }
+}
+
+@media (max-width: 340px) {
+  .sm-card {
+    width: 82px;
+    height: 102px;
+    margin-left: -16px;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .sm-card {
+    transition: none;
+  }
+}

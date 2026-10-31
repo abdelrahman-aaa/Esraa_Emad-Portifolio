@@ -1,0 +1,374 @@
+/* ============================================================
+   BRANDING SECTION — STYLES
+   One Unified PDF Brand Guidelines Gallery
+   ============================================================ */
+
+/* ── Section wrapper ── */
+.br-section {
+  padding: 64px 0 0;
+  background: var(--bg);
+  position: relative;
+}
+
+/* ════════════════════════════════════════
+   MAIN HEADING — ★ Branding ★
+════════════════════════════════════════ */
+.br-main-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0 0 48px;
+  text-align: center;
+}
+
+.br-main-title {
+  font-family: var(--font-script, 'Great Vibes', cursive);
+  font-size: clamp(48px, 6.5vw, 76px);
+  color: var(--navy);
+  line-height: 1;
+}
+
+.br-main-star {
+  color: var(--gold);
+  font-size: 18px;
+  position: relative;
+  top: 3px;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+/* ════════════════════════════════════════
+   UNIFIED GALLERY CONTAINER
+   Large, softly rounded light-gray/lavender container
+════════════════════════════════════════ */
+.br-gallery-container {
+  background: #f0eff8;
+  border: 1px solid #e2e0ee;
+  border-radius: 28px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 20px rgba(30, 42, 90, 0.04);
+  margin-bottom: 48px;
+}
+
+/* ── Three-column Grid (Equal dimensions on desktop) ── */
+.br-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* ════════════════════════════════════════
+   INDIVIDUAL GUIDELINE CARD
+════════════════════════════════════════ */
+.br-guideline-card {
+  background: #ffffff;
+  border: 1px solid #e8e4de;
+  border-radius: 20px;
+  padding: 16px 16px 22px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(30, 42, 90, 0.06);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card Hover: smooth upward motion, enlargement & shadow increase */
+.br-guideline-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 16px 36px rgba(30, 42, 90, 0.13);
+  border-color: #d8d3e8;
+}
+
+/* ════════════════════════════════════════
+   CARD PREVIEW AREA (PDF Cover)
+════════════════════════════════════════ */
+.br-card-preview-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  background: #f8f6f2;
+  border: 1px solid #eae6f0;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.br-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.35s ease;
+}
+
+/* Image emphasis on hover */
+.br-guideline-card:hover .br-preview-img {
+  transform: scale(1.04);
+  filter: brightness(1.02);
+}
+
+/* ── Top-right format badge ── */
+.br-format-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(30, 42, 90, 0.82);
+  color: #ffffff;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 20px;
+  border: 0.75px solid rgba(255, 255, 255, 0.3);
+  font-family: var(--font-sans);
+  white-space: nowrap;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════
+   CARD BODY & TEXT
+════════════════════════════════════════ */
+.br-card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 18px 8px 4px;
+  flex: 1;
+}
+
+.br-card-project-title {
+  font-family: var(--font-script, 'Great Vibes', cursive);
+  font-size: clamp(26px, 2.6vw, 32px);
+  color: var(--navy);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 4px;
+}
+
+.br-card-title-link {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.br-card-title-link:hover {
+  opacity: 0.8;
+}
+
+/* Description: small dusty-mauve typography */
+.br-card-meta {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pink); /* dusty-mauve */
+  margin: 0 0 18px;
+  font-family: var(--font-sans);
+}
+
+/* ════════════════════════════════════════
+   ACTION BUTTON: View Guidelines ↗
+   Deep navy-blue, white text, rounded pill
+════════════════════════════════════════ */
+.br-btn-view {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--navy);
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  font-family: var(--font-sans);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  max-width: 190px;
+  box-shadow: 0 2px 8px rgba(30, 42, 90, 0.16);
+  transition: background 0.25s ease,
+              transform 0.25s ease,
+              box-shadow 0.25s ease;
+  margin-top: auto;
+}
+
+.br-btn-view:hover {
+  background: var(--navy-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 42, 90, 0.24);
+}
+
+.br-btn-view .br-btn-arrow {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.br-btn-view:hover .br-btn-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* ════════════════════════════════════════
+   FOOTER ROW
+════════════════════════════════════════ */
+.br-footer {
+  margin-top: 12px;
+  padding-bottom: 0;
+}
+
+.br-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.br-footer-left,
+.br-footer-right {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  font-family: var(--font-sans);
+}
+
+.br-footer-monogram {
+  font-family: var(--font-script, 'Great Vibes', cursive);
+  font-size: 34px;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.br-footer-divider {
+  height: 1px;
+  background: var(--border);
+  width: 100%;
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — TABLET (≤1024px)
+   2 cards in 1st row, 1 centered in 2nd row
+════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .br-gallery-container {
+    padding: 28px 22px;
+  }
+
+  .br-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* Center the 3rd card on tablet */
+  .br-gallery-grid > :nth-child(3):last-child {
+    grid-column: 1 / -1;
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤768px)
+   Stack vertically, full touch-friendly targets
+════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .br-section {
+    padding: 48px 0 0;
+  }
+
+  .br-main-heading {
+    margin-bottom: 32px;
+    gap: 12px;
+  }
+
+  .br-main-title {
+    font-size: clamp(38px, 8vw, 56px);
+  }
+
+  .br-gallery-container {
+    padding: 18px 14px;
+    border-radius: 20px;
+    margin-bottom: 36px;
+  }
+
+  .br-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .br-gallery-grid > :nth-child(3):last-child {
+    grid-column: auto;
+    max-width: none;
+    margin: 0;
+  }
+
+  .br-guideline-card {
+    padding: 14px 14px 18px;
+    border-radius: 16px;
+  }
+
+  .br-btn-view {
+    max-width: 100%;
+    padding: 12px 20px;
+    min-height: 44px;
+  }
+
+  .br-footer {
+    margin-top: 24px;
+  }
+
+  .br-footer-monogram {
+    font-size: 26px;
+  }
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — SMALL MOBILE (≤380px)
+════════════════════════════════════════ */
+@media (max-width: 380px) {
+  .br-gallery-container {
+    padding: 14px 10px;
+    border-radius: 16px;
+  }
+
+  .br-guideline-card {
+    padding: 12px 10px 16px;
+  }
+
+  .br-card-info {
+    padding: 14px 4px 4px;
+  }
+}
+
+/* ════════════════════════════════════════
+   REDUCED MOTION
+════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .br-guideline-card,
+  .br-preview-img,
+  .br-btn-view,
+  .br-btn-view .br-btn-arrow {
+    transition: none;
+  }
+}

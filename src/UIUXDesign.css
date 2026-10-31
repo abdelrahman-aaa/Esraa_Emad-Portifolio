@@ -1,0 +1,185 @@
+/* ============================================================
+   UI/UX DESIGN SECTION — STYLES (Section 1)
+   ============================================================ */
+
+/* ── Section wrapper ── */
+.uiux-section {
+  padding: 64px 0 0;
+  background: var(--bg);
+}
+
+/* ════════════════════════════════════════
+   HEADING — ★ UI/UX Design ★
+════════════════════════════════════════ */
+.uiux-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.uiux-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0 0 10px;
+}
+
+.uiux-title-text {
+  font-size: clamp(44px, 6vw, 72px);
+  color: var(--navy);
+  line-height: 1;
+}
+
+.uiux-title-star {
+  color: var(--gold);
+  font-size: 18px;
+  position: relative;
+  top: 2px;
+  flex-shrink: 0;
+}
+
+.uiux-subtitle {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--pink);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ════════════════════════════════════════
+   OUTER CONTAINER
+════════════════════════════════════════ */
+.uiux-outer {
+  background: #f0eff8;
+  border: 1px solid #e2e0ee;
+  border-radius: 24px;
+  padding: 32px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+/* ── Large lavender preview area ── */
+.uiux-preview {
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  background: #dddaf0;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Preview image (when real asset provided) */
+.uiux-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* ── Open in Figma button row ── */
+.uiux-figma-row {
+  display: flex;
+  justify-content: center;
+}
+
+.uiux-btn-figma {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.uiux-btn-figma:hover {
+  background: var(--navy-light);
+  transform: translateY(-1px);
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — TABLET (≤1024px)
+════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .uiux-outer {
+    padding: 24px 24px 32px;
+    gap: 22px;
+  }
+
+  .uiux-preview {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤768px)
+════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .uiux-section {
+    padding: 48px 0 0;
+  }
+
+  .uiux-heading {
+    margin-bottom: 28px;
+  }
+
+  .uiux-title-text {
+    font-size: clamp(36px, 8vw, 56px);
+  }
+
+  .uiux-subtitle {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+  }
+
+  .uiux-outer {
+    padding: 18px 16px 28px;
+    border-radius: 18px;
+    gap: 20px;
+  }
+
+  .uiux-preview {
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+  }
+
+  .uiux-btn-figma {
+    min-height: 44px;
+    padding: 12px 28px;
+    font-size: 13.5px;
+    width: 100%;
+    max-width: 240px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .uiux-outer {
+    padding: 14px 12px 22px;
+  }
+
+  .uiux-preview {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .uiux-btn-figma {
+    transition: none;
+  }
+}

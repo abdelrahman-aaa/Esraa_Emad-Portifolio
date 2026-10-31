@@ -1,0 +1,445 @@
+/* ============================================================
+   PACKAGING SECTION — STYLES
+   ============================================================ */
+
+/* ── Section wrapper ── */
+.pkg-section {
+  padding: 64px 0 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* ════════════════════════════════════════
+   HEADING — ★ Packaging ★
+════════════════════════════════════════ */
+.pkg-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 0 48px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.pkg-heading-text {
+  font-size: clamp(44px, 6vw, 72px);
+  color: var(--navy);
+  line-height: 1;
+}
+
+.pkg-heading-star {
+  color: var(--gold);
+  font-size: 18px;
+  line-height: 1;
+  position: relative;
+  top: 2px;
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════
+   GALLERY CONTAINER
+════════════════════════════════════════ */
+.pkg-gallery-wrap {
+  /* constrained by .container padding */
+}
+
+.pkg-gallery {
+  background: #f0eff8;
+  border: 1px solid #e2e0ee;
+  border-radius: 24px;
+  padding: 56px 40px 64px;
+  /* Single horizontal row — flex, allow hovered cards to escape */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  /* Minimum height so even with translateY cards don't squish */
+  min-height: 340px;
+}
+
+/* ════════════════════════════════════════
+   BASE CARD — shared between both types
+════════════════════════════════════════ */
+.pkg-card {
+  --card-rotate: 0deg;
+  --card-ty: 0px;
+
+  flex-shrink: 0;
+  width: 210px;
+  height: 260px;
+  border-radius: 16px;
+  transform: rotate(var(--card-rotate)) translateY(var(--card-ty));
+  transform-origin: center center;
+  position: relative;
+  /* Overlap: each card pulls left by ~40px */
+  margin-left: -40px;
+  cursor: pointer;
+  z-index: 1;
+
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease;
+}
+
+/* First card — no negative left margin */
+.pkg-gallery .pkg-card:first-child {
+  margin-left: 0;
+}
+
+/* z-index stacking: dieline cards sit on top of lavender cards */
+.pkg-card--lavender {
+  z-index: 1;
+}
+.pkg-card--dieline {
+  z-index: 2;
+}
+
+/* Hover — bring to front, lift, scale, straighten */
+.pkg-card:hover {
+  transform: rotate(0deg) translateY(calc(var(--card-ty) - 12px)) scale(1.07);
+  z-index: 20;
+}
+
+/* ════════════════════════════════════════
+   LAVENDER PLACEHOLDER CARD
+════════════════════════════════════════ */
+.pkg-card--lavender {
+  background: #dddaf0;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 4px 18px rgba(80, 70, 160, 0.13),
+    0 1px 4px rgba(80, 70, 160, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pkg-card--lavender:hover {
+  box-shadow:
+    0 16px 40px rgba(80, 70, 160, 0.22),
+    0 4px 12px rgba(80, 70, 160, 0.14);
+}
+
+.pkg-placeholder-icon {
+  width: 32px;
+  height: 32px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.pkg-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+/* ════════════════════════════════════════
+   WHITE DIELINE / PACKAGING BOARD CARD
+════════════════════════════════════════ */
+.pkg-card--dieline {
+  background: #ffffff;
+  border: 1px solid #e8e4de;
+  box-shadow:
+    0 6px 24px rgba(30, 42, 90, 0.10),
+    0 2px 6px rgba(30, 42, 90, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  overflow: hidden;
+}
+
+.pkg-card--dieline:hover {
+  box-shadow:
+    0 18px 44px rgba(30, 42, 90, 0.16),
+    0 6px 14px rgba(30, 42, 90, 0.10);
+}
+
+/* ── Technical header row ── */
+.dieline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px 8px;
+  border-bottom: 0.5px solid #e8e6f0;
+  flex-shrink: 0;
+}
+
+.dieline-spec {
+  font-size: 7.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #a8a0c0;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+}
+
+/* ── Central artwork box ── */
+.dieline-artwork-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+}
+
+.dieline-artwork-box {
+  width: 100%;
+  flex: 1;
+  border: 0.75px solid #d8d4ec;
+  border-radius: 8px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fdfcff;
+  padding: 14px;
+}
+
+.dieline-artwork-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.dieline-brand-name {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--pink);
+  line-height: 1;
+  margin: 0;
+}
+
+.dieline-brand-sub {
+  font-size: 7.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #b0a8c8;
+  font-family: var(--font-sans);
+  margin: 0;
+}
+
+.dieline-artwork-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/* ── Technical footer note ── */
+.dieline-footer-note {
+  flex-shrink: 0;
+  padding: 7px 12px 10px;
+  border-top: 0.5px solid #e8e6f0;
+}
+
+.dieline-footer-note span {
+  font-size: 6.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #b0a8c8;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+}
+
+/* ════════════════════════════════════════
+   FOOTER ROW
+════════════════════════════════════════ */
+.pkg-footer {
+  margin-top: 48px;
+  padding-bottom: 0;
+}
+
+.pkg-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.pkg-footer-left,
+.pkg-footer-right {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+.pkg-footer-monogram {
+  font-size: 34px;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.pkg-footer-divider {
+  height: 1px;
+  background: var(--border);
+  width: 100%;
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — TABLET (≤1024px)
+════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .pkg-gallery {
+    padding: 40px 24px 48px;
+    min-height: 280px;
+  }
+
+  .pkg-card {
+    width: 175px;
+    height: 215px;
+    border-radius: 13px;
+    margin-left: -30px;
+  }
+
+  .dieline-artwork-box {
+    min-height: 90px;
+  }
+
+  .dieline-brand-name {
+    font-size: 22px;
+  }
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤768px)
+════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .pkg-section {
+    padding: 48px 0 0;
+  }
+
+  .pkg-heading {
+    margin-bottom: 36px;
+    gap: 12px;
+  }
+
+  .pkg-heading-text {
+    font-size: clamp(38px, 8vw, 56px);
+  }
+
+  .pkg-gallery {
+    padding: 28px 16px 36px;
+    border-radius: 18px;
+    min-height: auto;
+    overflow-x: visible;
+    overflow-y: visible;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 20px;
+  }
+
+  .pkg-card {
+    width: 140px;
+    height: 178px;
+    border-radius: 12px;
+    margin-left: -28px;
+    flex-shrink: 0;
+  }
+
+  /* Reset margin on the 1st and 3rd cards to form two distinct overlapping pairs */
+  .pkg-gallery .pkg-card:nth-child(1),
+  .pkg-gallery .pkg-card:nth-child(3) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .pkg-gallery .pkg-card:nth-child(2),
+  .pkg-gallery .pkg-card:nth-child(4) {
+    margin-left: -28px;
+  }
+
+  .dieline-header {
+    padding: 7px 9px 6px;
+  }
+
+  .dieline-artwork-box {
+    min-height: 70px;
+    padding: 8px;
+    border-radius: 6px;
+  }
+
+  .dieline-brand-name {
+    font-size: 18px;
+  }
+
+  .dieline-brand-sub {
+    font-size: 6px;
+  }
+
+  .pkg-footer {
+    margin-top: 32px;
+  }
+
+  .pkg-footer-monogram {
+    font-size: 26px;
+  }
+
+  /* Disable hover on touch devices */
+  @media (hover: none) {
+    .pkg-card:hover {
+      transform: rotate(var(--card-rotate)) translateY(var(--card-ty)) scale(1);
+      box-shadow: initial;
+      z-index: 1;
+    }
+    .pkg-card--lavender:hover {
+      box-shadow:
+        0 4px 18px rgba(80, 70, 160, 0.13),
+        0 1px 4px rgba(80, 70, 160, 0.08);
+    }
+    .pkg-card--dieline:hover {
+      box-shadow:
+        0 6px 24px rgba(30, 42, 90, 0.10),
+        0 2px 6px rgba(30, 42, 90, 0.06);
+    }
+  }
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — SMALL MOBILE (≤380px)
+════════════════════════════════════════ */
+@media (max-width: 380px) {
+  .pkg-gallery {
+    padding: 20px 10px 28px;
+    gap: 20px 16px;
+  }
+
+  .pkg-card {
+    width: 122px;
+    height: 156px;
+  }
+
+  .pkg-gallery .pkg-card:nth-child(2),
+  .pkg-gallery .pkg-card:nth-child(4) {
+    margin-left: -22px;
+  }
+}
+
+@media (max-width: 330px) {
+  .pkg-card {
+    width: 108px;
+    height: 138px;
+  }
+
+  .pkg-gallery .pkg-card:nth-child(2),
+  .pkg-gallery .pkg-card:nth-child(4) {
+    margin-left: -18px;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .pkg-card {
+    transition: none;
+  }
+}

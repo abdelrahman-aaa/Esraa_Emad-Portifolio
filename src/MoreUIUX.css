@@ -1,0 +1,312 @@
+/* ============================================================
+   MORE UI/UX PROJECTS SECTION — STYLES (Section 2)
+   ============================================================ */
+
+/* ── Section wrapper ── */
+.muiux-section {
+  padding: 64px 0 0;
+  background: var(--bg);
+}
+
+/* ════════════════════════════════════════
+   HEADING — "More UI/UX Projects"
+════════════════════════════════════════ */
+.muiux-heading {
+  text-align: center;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Small uppercase pink label above heading */
+.muiux-case-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--pink);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Large script heading — no stars */
+.muiux-title {
+  font-size: clamp(40px, 5.5vw, 68px);
+  color: var(--navy);
+  font-weight: 400;
+  line-height: 1.05;
+  margin: 0;
+}
+
+/* ════════════════════════════════════════
+   OUTER CONTAINER
+════════════════════════════════════════ */
+.muiux-outer {
+  background: #f0eff8;
+  border: 1px solid #e2e0ee;
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ════════════════════════════════════════
+   CARD ROWS
+════════════════════════════════════════ */
+
+/* Row 1 — 3 equal-width cards */
+.muiux-row-1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Row 2 — 1 centered card */
+.muiux-row-2 {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.muiux-row-2 .muiux-card {
+  width: 100%;
+  max-width: calc((100% - 40px) / 3);
+}
+
+/* ════════════════════════════════════════
+   INDIVIDUAL PROJECT CARD
+════════════════════════════════════════ */
+.muiux-card {
+  background: #ffffff;
+  border: 1px solid #e8e4de;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(30, 42, 90, 0.07);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.muiux-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(30, 42, 90, 0.13);
+}
+
+/* ── Preview image area ── */
+.muiux-card-preview {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+
+.muiux-card-icon {
+  width: 36px;
+  height: 28px;
+  opacity: 0.8;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.muiux-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Card text body ── */
+.muiux-card-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.muiux-card-title {
+  font-size: 20px;
+  color: var(--navy);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.muiux-card-label {
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--pink);
+  text-transform: uppercase;
+  margin: 0;
+  text-decoration: none;
+  transition: color 0.2s;
+  display: block;
+}
+
+a.muiux-card-label:hover {
+  color: var(--navy);
+}
+
+/* ════════════════════════════════════════
+   FOOTER ROW
+════════════════════════════════════════ */
+.muiux-footer {
+  margin-top: 48px;
+  padding-bottom: 0;
+}
+
+.muiux-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.muiux-footer-left,
+.muiux-footer-right {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+.muiux-footer-monogram {
+  font-size: 34px;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.muiux-footer-divider {
+  height: 1px;
+  background: var(--border);
+  width: 100%;
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — TABLET (≤1024px)
+════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .muiux-outer {
+    padding: 24px;
+    gap: 16px;
+  }
+
+  .muiux-row-1 {
+    gap: 14px;
+  }
+
+  .muiux-row-2 {
+    gap: 14px;
+  }
+
+  .muiux-row-2 .muiux-card {
+    width: 100%;
+    max-width: calc((100% - 28px) / 3);
+  }
+
+  .muiux-card-title {
+    font-size: 17px;
+  }
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤768px)
+════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .muiux-section {
+    padding: 48px 0 0;
+  }
+
+  .muiux-heading {
+    margin-bottom: 28px;
+  }
+
+  .muiux-case-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+  }
+
+  .muiux-title {
+    font-size: clamp(32px, 7.5vw, 48px);
+  }
+
+  .muiux-outer {
+    padding: 18px 16px;
+    border-radius: 18px;
+    gap: 16px;
+  }
+
+  /* Stack cards in a single column on mobile */
+  .muiux-row-1 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .muiux-row-2 {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .muiux-row-2 .muiux-card {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .muiux-card-title {
+    font-size: 20px;
+  }
+
+  .muiux-footer {
+    margin-top: 32px;
+  }
+
+  .muiux-footer-monogram {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 380px) {
+  .muiux-outer {
+    padding: 14px 12px;
+    gap: 14px;
+  }
+
+  .muiux-row-1,
+  .muiux-row-2 {
+    gap: 14px;
+  }
+}
+
+/* ── Small tablet: 2-col first row ── */
+@media (max-width: 860px) and (min-width: 769px) {
+  .muiux-row-1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .muiux-row-1 .muiux-card:last-child {
+    /* Third card in row 1 falls to second row, full width centered */
+    grid-column: 1 / -1;
+    max-width: calc(50% - 7px);
+    margin: 0 auto;
+  }
+
+  .muiux-row-2 .muiux-card {
+    flex: 0 1 calc(50% - 7px);
+    max-width: calc(50% - 7px);
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .muiux-card {
+    transition: none;
+  }
+}
